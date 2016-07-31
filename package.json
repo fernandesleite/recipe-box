@@ -1,7 +1,7 @@
 {
-  "name": "camper-leaderboard",
+  "name": "recipe-box",
   "version": "1.0.0",
-  "description": "FCC Leaderboard",
+  "description": "recipe-box",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +9,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-eslint": "^6.1.2",
     "browser-sync": "^2.13.0",
+    "eslint": "^3.2.0",
+    "eslint-config-standard": "^5.3.5",
+    "eslint-plugin-promise": "^2.0.0",
+    "eslint-plugin-react": "^5.2.2",
+    "eslint-plugin-standard": "^2.0.0",
     "gulp": "^3.9.1",
     "gulp-sass": "^2.3.2",
     "webpack": "^1.13.1",
@@ -25,5 +31,13 @@
     "react-dom": "^15.2.1",
     "webpack": "^1.13.1",
     "webpack-stream": "^3.2.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thenegativeedge/recipe-box.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thenegativeedge/recipe-box/issues"
+  },
+  "homepage": "https://github.com/thenegativeedge/recipe-box#readme"
 }

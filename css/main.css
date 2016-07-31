@@ -1,0 +1,30 @@
+.outsideBox {
+  background-color: #550612;
+  padding: 15px;
+  z-index: 0; }
+  .outsideBox button {
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    color: #FFF; }
+  .outsideBox .recipeBox {
+    background-color: #fff;
+    z-index: 0; }
+    .outsideBox .recipeBox .title {
+      background-color: #1E1A1B;
+      color: #fff; }
+    .outsideBox .recipeBox .delete {
+      background-color: #F00; }
+    .outsideBox .recipeBox .edit {
+      background-color: #001D7D; }
+
+.modal {
+  width: 700px;
+  height: 500px;
+  background-color: #fff;
+  z-index: 1;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  border: 1px solid black;
+  margin: 200px 0 0 -350px; }

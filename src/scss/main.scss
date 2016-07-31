@@ -1,0 +1,41 @@
+$primary-color: #550612;
+$title-color: #1E1A1B;
+$recipe-color: #FFA200;
+
+
+.outsideBox{
+	background-color: $primary-color;
+	padding: 15px;
+	z-index: 0;
+	button{
+		border: none;
+		padding:10px;
+		margin: 5px;
+		color: #FFF;
+	}
+	.recipeBox{
+		background-color: #fff;
+		z-index: 0;
+		.title{
+			background-color: $title-color;
+			color: #fff;
+		}
+		.delete{
+			background-color: #F00;
+		}
+		.edit{
+			background-color: #001D7D;
+		}
+	}
+}
+	.modal{
+		width: 700px;
+		height: 500px;
+		background-color: #fff;
+		z-index: 1;
+		position: absolute;
+		top: 0%;
+		left: 50%;
+		border: 1px solid black;
+		margin: 200px 0 0 -350px;
+	}

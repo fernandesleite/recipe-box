@@ -1,9 +1,8 @@
-var gulp		= require('gulp');
-var browserSync = require('browser-sync').create();
+var gulp		= require("gulp");
+var browserSync = require("browser-sync").create();
 var reload 		= browserSync.reload;
-var sass 		= require('gulp-sass');
-var webpack 	= require('webpack-stream');
-var webpackConfig = require('./webpack.config.js');
+var sass 		= require("gulp-sass");
+var webpack 	= require("webpack-stream");
 
 // watch html, css, scss and js for changes and reload the page
 gulp.task('serve', ['sass'], function(){
@@ -14,20 +13,20 @@ gulp.task('serve', ['sass'], function(){
 	});
 	// gulp.watch("js/*.js").on("change", reload);	// any js
     gulp.watch("main.js").on("change", reload);		// react
-    gulp.watch("scss/*.scss", ['sass']);
+    gulp.watch("src/scss/*.scss", ["sass"]);
     gulp.watch("*.html").on("change", reload);
 });
 
 // convert scss to css
 gulp.task('sass', function(){
-	gulp.src('./scss/*.scss')
+	gulp.src('./src/scss/*.scss')
 	.pipe(sass().on('error', sass.logError))
 	.pipe(gulp.dest('./css'))
 	.pipe(browserSync.stream());
 });
 
 gulp.task('webpack', function(){
-	return gulp.src('js/app.js')
+	return gulp.src('src/js/app.jsx')
 	  .pipe(
 	  	webpack({
 	  	watch: true,
