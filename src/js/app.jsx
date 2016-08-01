@@ -171,14 +171,13 @@ class Recipe extends React.Component{
 class Modal extends React.Component{
 	modalAdd(){
 		return	(
-			<div className="outsideModal" onClick={this.closeModal}>
+			<div className="outsideModal">
 				<div id="modal" className="modal">
 					<button className="closeModal" onClick={this.props.close}>X</button>
 					<h1>Add Recipe</h1>
-					<p>Title: </p><textarea type="text" name="title"/>
-					<p>Ingredients</p>
-					<textarea name="ingredients" id="" cols="50" rows="10"></textarea>
-					<button onClick={this.props.saveNew}>Save New Recipe</button>
+					<p>Title: </p><textarea name="title" cols="50" rows="1"/>
+					<p>Ingredients: </p><textarea name="ingredients" id="" cols="75" rows="10"/>
+					<button onClick={this.props.saveNew} className="save">Save New Recipe</button>
 
 				</div>
 			</div>
@@ -186,14 +185,15 @@ class Modal extends React.Component{
 	}
 	modalEdit(){
 		return	(
-			<div className="outsideModal" onClick={this.closeModal}>
+			<div className="outsideModal">
 				<div id="modal" className="modal">
 					<button className="closeModal" onClick={this.props.close}>X</button>
 					<h1>Edit Recipe</h1>
-					<p>Title: </p><textarea type="text" name="title" defaultValue={this.props.titleDefault}/>
-					<p>Ingredients</p>
-					<textarea name="ingredients" id="" cols="50" rows="10" defaultValue={this.props.ingredientsDefault}></textarea>
-					<button onClick={this.props.saveEdit}>Save Edit</button>
+					<p>Title: </p>
+					<textarea name="title" cols="50" defaultValue={this.props.titleDefault}/>
+					<p>Ingredients:</p>
+					<textarea name="ingredients" id="" cols="97" rows="10" defaultValue={this.props.ingredientsDefault}></textarea>
+					<button onClick={this.props.saveEdit} className="save">Save Edit</button>
 				</div>
 			</div>
 			);

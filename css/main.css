@@ -1,12 +1,13 @@
 body {
   background: url("/imgs/Top-View-Table1.jpg");
   font-family: "Amatic SC", cursive;
-  font-size: 2.5em; }
+  font-size: 2.5em;
+  font-weight: bold; }
 
 .headerTitle {
   text-align: center;
   color: white;
-  background-color: #000; }
+  text-shadow: 5px 5px 10px black; }
 
 .outsideBox {
   background-color: rgba(42, 13, 0, 0.8);
@@ -19,24 +20,29 @@ body {
   .outsideBox button {
     background-color: green;
     border: none;
-    padding: 10px;
     margin: 5px;
     color: #FFF;
     cursor: pointer;
     outline: none;
     border-radius: 5px;
     font-family: "Amatic SC", cursive;
-    font-size: 0.8em; }
+    font-size: 0.7em;
+    height: 40px;
+    box-shadow: 0px 0px 10px black; }
+    .outsideBox button:active {
+      box-shadow: 0px 0px 0px black; }
   .outsideBox .recipeBox {
     z-index: 0;
     background-color: #fff; }
     .outsideBox .recipeBox .ingredients {
-      font-size: 0.8em; }
+      font-size: 0.8em;
+      padding: 0 0 10px 10px; }
     .outsideBox .recipeBox .title {
       background-color: #1E1A1B;
       font-size: 0.6em;
       color: #fff;
-      text-align: center; }
+      text-align: center;
+      box-shadow: 0px 0px 10px black; }
       .outsideBox .recipeBox .title:hover {
         text-decoration: underline;
         cursor: pointer; }
@@ -59,7 +65,11 @@ body {
     border: 1px solid black;
     background-color: #fff;
     width: 700px;
+    max-width: 100%;
     margin: 50px auto; }
+    .outsideModal .modal textarea {
+      font-size: 0.5em;
+      resize: none; }
     .outsideModal .modal .closeModal {
       padding: 0;
       color: black;

@@ -327,7 +327,7 @@
 			value: function modalAdd() {
 				return _react2.default.createElement(
 					"div",
-					{ className: "outsideModal", onClick: this.closeModal },
+					{ className: "outsideModal" },
 					_react2.default.createElement(
 						"div",
 						{ id: "modal", className: "modal" },
@@ -346,16 +346,16 @@
 							null,
 							"Title: "
 						),
-						_react2.default.createElement("textarea", { type: "text", name: "title" }),
+						_react2.default.createElement("textarea", { name: "title", cols: "50", rows: "1" }),
 						_react2.default.createElement(
 							"p",
 							null,
-							"Ingredients"
+							"Ingredients: "
 						),
-						_react2.default.createElement("textarea", { name: "ingredients", id: "", cols: "50", rows: "10" }),
+						_react2.default.createElement("textarea", { name: "ingredients", id: "", cols: "75", rows: "10" }),
 						_react2.default.createElement(
 							"button",
-							{ onClick: this.props.saveNew },
+							{ onClick: this.props.saveNew, className: "save" },
 							"Save New Recipe"
 						)
 					)
@@ -366,7 +366,7 @@
 			value: function modalEdit() {
 				return _react2.default.createElement(
 					"div",
-					{ className: "outsideModal", onClick: this.closeModal },
+					{ className: "outsideModal" },
 					_react2.default.createElement(
 						"div",
 						{ id: "modal", className: "modal" },
@@ -385,16 +385,16 @@
 							null,
 							"Title: "
 						),
-						_react2.default.createElement("textarea", { type: "text", name: "title", defaultValue: this.props.titleDefault }),
+						_react2.default.createElement("textarea", { name: "title", cols: "50", defaultValue: this.props.titleDefault }),
 						_react2.default.createElement(
 							"p",
 							null,
-							"Ingredients"
+							"Ingredients:"
 						),
-						_react2.default.createElement("textarea", { name: "ingredients", id: "", cols: "50", rows: "10", defaultValue: this.props.ingredientsDefault }),
+						_react2.default.createElement("textarea", { name: "ingredients", id: "", cols: "97", rows: "10", defaultValue: this.props.ingredientsDefault }),
 						_react2.default.createElement(
 							"button",
-							{ onClick: this.props.saveEdit },
+							{ onClick: this.props.saveEdit, className: "save" },
 							"Save Edit"
 						)
 					)
