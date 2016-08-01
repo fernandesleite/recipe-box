@@ -98,6 +98,7 @@
 			_this.delRecipe = _this.delRecipe.bind(_this);
 			_this.editRecipe = _this.editRecipe.bind(_this);
 			_this.saveEditRecipe = _this.saveEditRecipe.bind(_this);
+			_this.closeModal = _this.closeModal.bind(_this);
 			return _this;
 		}
 
@@ -153,6 +154,15 @@
 				localStorage.setItem("Recipes", JSON.stringify(this.state.recipes));
 			}
 		}, {
+			key: "closeModal",
+			value: function closeModal() {
+				if (this.state.edit) {
+					this.setState({ edit: false });
+				} else if (this.state.modal) {
+					this.setState({ modal: false });
+				}
+			}
+		}, {
 			key: "delRecipe",
 			value: function delRecipe(i) {
 				// Delete Recipe
@@ -173,10 +183,15 @@
 					"div",
 					null,
 					_react2.default.createElement(
+						"h1",
+						{ className: "headerTitle" },
+						"Virtual Recipe Box"
+					),
+					_react2.default.createElement(
 						"div",
 						{ className: "outsideBox" },
 						this.state.recipes.map(this.eachRecipe),
-						_react2.default.createElement(Modal, { isOpen: this.state.modal, isEdit: this.state.edit, saveNew: this.saveNewRecipe, saveEdit: this.saveEditRecipe, titleDefault: this.state.titleEdit, ingredientsDefault: this.state.ingredientsEdit }),
+						_react2.default.createElement(Modal, { isOpen: this.state.modal, isEdit: this.state.edit, saveNew: this.saveNewRecipe, saveEdit: this.saveEditRecipe, close: this.closeModal, titleDefault: this.state.titleEdit, ingredientsDefault: this.state.ingredientsEdit }),
 						_react2.default.createElement(
 							"button",
 							{ className: "add", onClick: this.addNewRecipe },
@@ -239,10 +254,10 @@
 					{ className: "recipeBox" },
 					_react2.default.createElement(
 						"div",
-						{ className: "title" },
+						{ onClick: this.toggleView, className: "title" },
 						_react2.default.createElement(
 							"h1",
-							{ onClick: this.toggleView },
+							null,
 							this.props.title
 						)
 					)
@@ -256,10 +271,10 @@
 					{ className: "recipeBox" },
 					_react2.default.createElement(
 						"div",
-						{ className: "title" },
+						{ onClick: this.toggleView, className: "title" },
 						_react2.default.createElement(
 							"h1",
-							{ onClick: this.toggleView },
+							null,
 							this.props.title
 						)
 					),
@@ -312,28 +327,37 @@
 			value: function modalAdd() {
 				return _react2.default.createElement(
 					"div",
-					{ id: "modal", className: "modal" },
+					{ className: "outsideModal", onClick: this.closeModal },
 					_react2.default.createElement(
-						"h1",
-						null,
-						"Add Recipe"
-					),
-					_react2.default.createElement(
-						"p",
-						null,
-						"Title: "
-					),
-					_react2.default.createElement("textarea", { type: "text", name: "title" }),
-					_react2.default.createElement(
-						"p",
-						null,
-						"Ingredients"
-					),
-					_react2.default.createElement("textarea", { name: "ingredients", id: "", cols: "50", rows: "10" }),
-					_react2.default.createElement(
-						"button",
-						{ onClick: this.props.saveNew },
-						"Added"
+						"div",
+						{ id: "modal", className: "modal" },
+						_react2.default.createElement(
+							"button",
+							{ className: "closeModal", onClick: this.props.close },
+							"X"
+						),
+						_react2.default.createElement(
+							"h1",
+							null,
+							"Add Recipe"
+						),
+						_react2.default.createElement(
+							"p",
+							null,
+							"Title: "
+						),
+						_react2.default.createElement("textarea", { type: "text", name: "title" }),
+						_react2.default.createElement(
+							"p",
+							null,
+							"Ingredients"
+						),
+						_react2.default.createElement("textarea", { name: "ingredients", id: "", cols: "50", rows: "10" }),
+						_react2.default.createElement(
+							"button",
+							{ onClick: this.props.saveNew },
+							"Save New Recipe"
+						)
 					)
 				);
 			}
@@ -342,28 +366,37 @@
 			value: function modalEdit() {
 				return _react2.default.createElement(
 					"div",
-					{ id: "modal", className: "modal" },
+					{ className: "outsideModal", onClick: this.closeModal },
 					_react2.default.createElement(
-						"h1",
-						null,
-						"Edit Recipe"
-					),
-					_react2.default.createElement(
-						"p",
-						null,
-						"Title: "
-					),
-					_react2.default.createElement("textarea", { type: "text", name: "title", defaultValue: this.props.titleDefault }),
-					_react2.default.createElement(
-						"p",
-						null,
-						"Ingredients"
-					),
-					_react2.default.createElement("textarea", { name: "ingredients", id: "", cols: "50", rows: "10", defaultValue: this.props.ingredientsDefault }),
-					_react2.default.createElement(
-						"button",
-						{ onClick: this.props.saveEdit },
-						"Added Edit"
+						"div",
+						{ id: "modal", className: "modal" },
+						_react2.default.createElement(
+							"button",
+							{ className: "closeModal", onClick: this.props.close },
+							"X"
+						),
+						_react2.default.createElement(
+							"h1",
+							null,
+							"Edit Recipe"
+						),
+						_react2.default.createElement(
+							"p",
+							null,
+							"Title: "
+						),
+						_react2.default.createElement("textarea", { type: "text", name: "title", defaultValue: this.props.titleDefault }),
+						_react2.default.createElement(
+							"p",
+							null,
+							"Ingredients"
+						),
+						_react2.default.createElement("textarea", { name: "ingredients", id: "", cols: "50", rows: "10", defaultValue: this.props.ingredientsDefault }),
+						_react2.default.createElement(
+							"button",
+							{ onClick: this.props.saveEdit },
+							"Save Edit"
+						)
 					)
 				);
 			}

@@ -34,6 +34,7 @@ class Box extends React.Component{
 		this.delRecipe = this.delRecipe.bind(this);
 		this.editRecipe = this.editRecipe.bind(this);
 		this.saveEditRecipe = this.saveEditRecipe.bind(this);
+		this.closeModal = this.closeModal.bind(this);
 	}
 	addNewRecipe(){ // Open modal to New Recipes
 		this.setState({modal: !this.state.modal});
@@ -74,6 +75,14 @@ class Box extends React.Component{
 		this.setState({edit: !this.state.edit, recipes: this.state.recipes});
 		localStorage.setItem("Recipes", JSON.stringify(this.state.recipes));
 	}
+	closeModal(){
+		if(this.state.edit){
+			this.setState({edit: false});
+		}
+		else if(this.state.modal){
+			this.setState({modal: false});
+		}
+	}
 	delRecipe(i){ // Delete Recipe
 		let array = this.state.recipes;
 		array.splice(i, 1);
@@ -88,9 +97,10 @@ class Box extends React.Component{
 	render(){
 		return (
 			<div>
+				<h1 className="headerTitle">Virtual Recipe Box</h1>
 				<div className="outsideBox">
 					{this.state.recipes.map(this.eachRecipe)}
-					<Modal isOpen={this.state.modal} isEdit={this.state.edit} saveNew={this.saveNewRecipe} saveEdit={this.saveEditRecipe} titleDefault={this.state.titleEdit} ingredientsDefault={this.state.ingredientsEdit}></Modal>
+					<Modal isOpen={this.state.modal} isEdit={this.state.edit} saveNew={this.saveNewRecipe} saveEdit={this.saveEditRecipe} close={this.closeModal} titleDefault={this.state.titleEdit} ingredientsDefault={this.state.ingredientsEdit}></Modal>
 					<button className="add" onClick={this.addNewRecipe}>Add Recipe</button>
 				</div>
 			</div>
@@ -125,8 +135,8 @@ class Recipe extends React.Component{
 	indexView(){
 		return (
 			<div className="recipeBox">
-				<div className="title">
-					<h1 onClick={this.toggleView}>{this.props.title}</h1>
+				<div onClick={this.toggleView} className="title">
+					<h1>{this.props.title}</h1>
 				</div>
 			</div>
 		);
@@ -134,8 +144,8 @@ class Recipe extends React.Component{
 	fullView(){
 		return (
 			<div className="recipeBox">
-				<div className="title">
-					<h1 onClick={this.toggleView}>{this.props.title}</h1>
+				<div onClick={this.toggleView} className="title">
+					<h1>{this.props.title}</h1>
 				</div>
 				<div className="ingredients">
 					<ul>
@@ -161,26 +171,31 @@ class Recipe extends React.Component{
 class Modal extends React.Component{
 	modalAdd(){
 		return	(
+			<div className="outsideModal" onClick={this.closeModal}>
 				<div id="modal" className="modal">
+					<button className="closeModal" onClick={this.props.close}>X</button>
 					<h1>Add Recipe</h1>
-			
 					<p>Title: </p><textarea type="text" name="title"/>
 					<p>Ingredients</p>
 					<textarea name="ingredients" id="" cols="50" rows="10"></textarea>
-					<button onClick={this.props.saveNew}>Added</button>
+					<button onClick={this.props.saveNew}>Save New Recipe</button>
+
 				</div>
+			</div>
 			);
 	}
 	modalEdit(){
 		return	(
+			<div className="outsideModal" onClick={this.closeModal}>
 				<div id="modal" className="modal">
+					<button className="closeModal" onClick={this.props.close}>X</button>
 					<h1>Edit Recipe</h1>
-			
 					<p>Title: </p><textarea type="text" name="title" defaultValue={this.props.titleDefault}/>
 					<p>Ingredients</p>
 					<textarea name="ingredients" id="" cols="50" rows="10" defaultValue={this.props.ingredientsDefault}></textarea>
-					<button onClick={this.props.saveEdit}>Added Edit</button>
+					<button onClick={this.props.saveEdit}>Save Edit</button>
 				</div>
+			</div>
 			);
 	}
 	render(){

@@ -1,24 +1,57 @@
-$primary-color: #550612;
+$primary-color: #2a0d00;
 $title-color: #1E1A1B;
 $recipe-color: #FFA200;
-
-
+$background: url("/imgs/Top-View-Table1.jpg");
+$font1: 'Marck Script', cursive;
+$font2: 'Sacramento', cursive;
+$font3: 'Amatic SC', cursive;
+body{
+	background: $background;
+	font-family: $font3;
+	font-size:2.5em;
+}
+.headerTitle{
+	text-align: center;
+	color:white;
+	background-color: #000;
+}
 .outsideBox{
-	background-color: $primary-color;
+	background-color: rgba($primary-color, 0.8);
 	padding: 15px;
 	z-index: 0;
+	max-width: 960px;
+	width:70%;
+	margin: 0 auto;
+	border-radius: 15px;
 	button{
+		background-color: green;
 		border: none;
 		padding:10px;
 		margin: 5px;
 		color: #FFF;
+		cursor:pointer;
+		outline: none;
+		border-radius: 5px;
+		font-family: $font3;
+		font-size: 0.8em;
 	}
 	.recipeBox{
-		background-color: #fff;
 		z-index: 0;
+		background-color: #fff;
+		.ingredients{
+			font-size: 0.8em;
+		}
 		.title{
 			background-color: $title-color;
+			font-size: 0.6em;
+
 			color: #fff;
+			text-align: center;
+
+			&:hover{
+				text-decoration: underline;
+				cursor: pointer;
+			}
 		}
 		.delete{
 			background-color: #F00;
@@ -28,14 +61,38 @@ $recipe-color: #FFA200;
 		}
 	}
 }
-	.modal{
-		width: 700px;
-		height: 500px;
-		background-color: #fff;
-		z-index: 1;
+	.outsideModal{
 		position: absolute;
-		top: 0%;
-		left: 50%;
-		border: 1px solid black;
-		margin: 200px 0 0 -350px;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 13;
+		background-color: rgba(#000, 0.7);
+		.modal{	
+			padding:10px 50px;
+			border-radius: 15px;
+			border: 1px solid black;
+			background-color: #fff;
+			width: 700px;
+			margin: 50px auto;
+			.closeModal{
+				padding:0;
+				color:black;
+				float:right;
+				height: 50px;
+				width: 50px;
+				font-weight: bold;
+				background-color: transparent;
+			}
+		}
+		h1{
+			text-align: center;
+		}
+		button{
+			
+		}
 	}
+		// .ingredients{
+		// 	background-color: #fff;
+		// }

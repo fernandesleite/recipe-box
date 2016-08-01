@@ -1,30 +1,72 @@
+body {
+  background: url("/imgs/Top-View-Table1.jpg");
+  font-family: "Amatic SC", cursive;
+  font-size: 2.5em; }
+
+.headerTitle {
+  text-align: center;
+  color: white;
+  background-color: #000; }
+
 .outsideBox {
-  background-color: #550612;
+  background-color: rgba(42, 13, 0, 0.8);
   padding: 15px;
-  z-index: 0; }
+  z-index: 0;
+  max-width: 960px;
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 15px; }
   .outsideBox button {
+    background-color: green;
     border: none;
     padding: 10px;
     margin: 5px;
-    color: #FFF; }
+    color: #FFF;
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+    font-family: "Amatic SC", cursive;
+    font-size: 0.8em; }
   .outsideBox .recipeBox {
-    background-color: #fff;
-    z-index: 0; }
+    z-index: 0;
+    background-color: #fff; }
+    .outsideBox .recipeBox .ingredients {
+      font-size: 0.8em; }
     .outsideBox .recipeBox .title {
       background-color: #1E1A1B;
-      color: #fff; }
+      font-size: 0.6em;
+      color: #fff;
+      text-align: center; }
+      .outsideBox .recipeBox .title:hover {
+        text-decoration: underline;
+        cursor: pointer; }
     .outsideBox .recipeBox .delete {
       background-color: #F00; }
     .outsideBox .recipeBox .edit {
       background-color: #001D7D; }
 
-.modal {
-  width: 700px;
-  height: 500px;
-  background-color: #fff;
-  z-index: 1;
+.outsideModal {
   position: absolute;
-  top: 0%;
-  left: 50%;
-  border: 1px solid black;
-  margin: 200px 0 0 -350px; }
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 13;
+  background-color: rgba(0, 0, 0, 0.7); }
+  .outsideModal .modal {
+    padding: 10px 50px;
+    border-radius: 15px;
+    border: 1px solid black;
+    background-color: #fff;
+    width: 700px;
+    margin: 50px auto; }
+    .outsideModal .modal .closeModal {
+      padding: 0;
+      color: black;
+      float: right;
+      height: 50px;
+      width: 50px;
+      font-weight: bold;
+      background-color: transparent; }
+  .outsideModal h1 {
+    text-align: center; }
