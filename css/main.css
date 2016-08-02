@@ -1,22 +1,33 @@
+body, html, div, blockquote, img, label, p, h1, h2, h3, h4, h5, h6, pre, ul,
+ol, li, dl, dt, dd, form, a, fieldset, input, th, td {
+  margin: 0;
+  border: 0;
+  outline: none; }
+
 body {
   background: url("/imgs/Top-View-Table1.jpg");
   font-family: "Amatic SC", cursive;
   font-size: 2.5em;
   font-weight: bold; }
+  @media screen and (max-width: 500px) {
+    body {
+      font-size: 2em; } }
 
 .headerTitle {
   text-align: center;
   color: white;
-  text-shadow: 5px 5px 10px black; }
+  text-shadow: 5px 5px 10px #000; }
 
 .outsideBox {
   background-color: rgba(42, 13, 0, 0.8);
-  padding: 15px;
+  padding: 25px;
   z-index: 0;
-  max-width: 960px;
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
   border-radius: 15px; }
+  @media screen and (max-width: 500px) {
+    .outsideBox {
+      width: 85%; } }
   .outsideBox button {
     background-color: green;
     border: none;
@@ -28,21 +39,29 @@ body {
     font-family: "Amatic SC", cursive;
     font-size: 0.7em;
     height: 40px;
-    box-shadow: 0px 0px 10px black; }
+    box-shadow: 0px 0px 10px #000; }
     .outsideBox button:active {
-      box-shadow: 0px 0px 0px black; }
+      box-shadow: 0px 0px 0px #000; }
   .outsideBox .recipeBox {
+    display: block;
+    width: 95%;
     z-index: 0;
-    background-color: #fff; }
+    margin: 1%; }
+    @media screen and (min-width: 769px) {
+      .outsideBox .recipeBox {
+        vertical-align: top;
+        display: inline-block;
+        width: 48%; } }
     .outsideBox .recipeBox .ingredients {
-      font-size: 0.8em;
-      padding: 0 0 10px 10px; }
+      font-size: 0.7em;
+      padding: 0 0 10px 10px;
+      background-color: #FFF; }
     .outsideBox .recipeBox .title {
       background-color: #1E1A1B;
       font-size: 0.6em;
-      color: #fff;
+      color: #FFF;
       text-align: center;
-      box-shadow: 0px 0px 10px black; }
+      box-shadow: 0px 0px 10px #000; }
       .outsideBox .recipeBox .title:hover {
         text-decoration: underline;
         cursor: pointer; }
@@ -50,6 +69,9 @@ body {
       background-color: #F00; }
     .outsideBox .recipeBox .edit {
       background-color: #001D7D; }
+  .outsideBox .add {
+    display: block;
+    vertical-align: bottom; }
 
 .outsideModal {
   position: absolute;
@@ -62,21 +84,27 @@ body {
   .outsideModal .modal {
     padding: 10px 50px;
     border-radius: 15px;
-    border: 1px solid black;
-    background-color: #fff;
-    width: 700px;
+    border: 1px solid #000;
+    background-color: #FFF;
+    width: 70%;
     max-width: 100%;
     margin: 50px auto; }
     .outsideModal .modal textarea {
       font-size: 0.5em;
-      resize: none; }
+      resize: none;
+      width: 90%;
+      height: 15%; }
     .outsideModal .modal .closeModal {
       padding: 0;
-      color: black;
+      color: #000;
       float: right;
       height: 50px;
       width: 50px;
       font-weight: bold;
-      background-color: transparent; }
+      background-color: transparent;
+      box-shadow: none; }
+    @media screen and (min-width: 769px) {
+      .outsideModal .modal {
+        width: 45%; } }
   .outsideModal h1 {
     text-align: center; }

@@ -178,7 +178,6 @@ class Modal extends React.Component{
 					<p>Title: </p><textarea name="title" cols="50" rows="1"/>
 					<p>Ingredients: </p><textarea name="ingredients" id="" cols="75" rows="10"/>
 					<button onClick={this.props.saveNew} className="save">Save New Recipe</button>
-
 				</div>
 			</div>
 			);
